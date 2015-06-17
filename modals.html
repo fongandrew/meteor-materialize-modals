@@ -1,0 +1,83 @@
+<body>
+  {{> _loginModals}}
+</body>
+
+<template name="_loginModals">
+  {{#if modal}}
+    {{> Template.dynamic template=modal}}
+  {{/if}}
+</template>
+
+<template name="_emailVerificationLink">
+  <div id="verify-email" class="modal login-modal">
+    <div class="modal-content">
+      <h4 class="success">
+        <i class="mdi-action-done"></i>
+        Your email has been verified
+      </h4>
+      {{#if displayName}}
+        <p>You will be logged in as {{displayName}}.</p>
+      {{/if}}
+    </div>
+    <div class="modal-footer">
+      <a href="#!"
+         class="modal-action modal-close waves-effect btn-flat">OK</a>
+    </div>
+  </div>
+</template>
+
+<template name="_enrollmentLink">
+  {{> _resetPasswordLink}}
+</template>
+
+<template name="_resetPasswordLink">
+  <form id="change-pw" class="modal login-modal">
+    <div class="modal-content">
+      <h4>Set Password</h4>
+      <p>You need pick a password before continuing.</p>
+      <div class="input-field {{#if error}}error{{/if}}">
+        <label for="email">Password</label>
+        <input type="password" id="password" name="password" />
+        {{#if error}}
+          <span class="error">
+            <i class="mdi-alert-error"></i> Invalid Password
+          </span>
+        {{/if}}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <!-- No modal close, template code should handle -->
+      {{> saveButton saving=saving 
+                     buttonClasses="modal-action waves-effect btn-flat"}}
+    </div>
+  </form>
+</template>
+
+<template name="_invalidLink">
+  <div class="modal login-modal">
+    <div class="modal-content">
+      <h4 class="error"><i class="mdi-alert-error"></i>  Error</h4>
+      <p>This link may have expired.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!"
+         class="modal-action modal-close waves-effect btn-flat">OK</a>
+    </div>
+  </div>
+</template>
+
+<template name="_successPwChanged">
+  <div class="modal login-modal">
+    <div class="modal-content">
+      <h4 class="success"><i class="mdi-action-done"></i>  Password Changed</h4>
+      {{#if displayName}}
+        <p>You will be logged in as {{displayName}}.</p>
+      {{/if}}
+    </div>
+    <div class="modal-footer">
+      <a href="#!"
+         class="modal-action modal-close waves-effect btn-flat">OK</a>
+    </div>
+  </div>
+</template>
+
