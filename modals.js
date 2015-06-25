@@ -150,7 +150,13 @@ LoginModals = {
       var newPassword = $(e.target).find('[name=password]').val();
       if (newPassword) {
         template._saving.set(true);
-        LoginModals.resetPassword(newPassword);  
+
+        // By default, we use Meteor's default resetPassword code, but you can 
+        // override this by passing a resetPasswordFunc variable into the data 
+        // context. Will be called with LoginModals as 'this'
+        var resetPasswordFunc = (this.resetPasswordFunc || 
+                                 LoginModals.resetPassword);
+        resetPasswordFunc.call(LoginModals, newPassword);  
       } else {
         template._error.set(true);
       }
