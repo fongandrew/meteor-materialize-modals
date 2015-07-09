@@ -10,8 +10,8 @@ Package.onUse(function(api) {
   'use strict';
   api.versionsFrom('METEOR@1.1.0.2');
   api.use([
-    'fongandrew:spacebars-helpers',
-    'fongandrew:save-button',
+    'fongandrew:spacebars-helpers@0.1.0',
+    'fongandrew:save-button@0.1.0',
     'reactive-var',
     'templating'
   ], 'client');
