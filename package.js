@@ -1,8 +1,9 @@
 Package.describe({
   name: 'fongandrew:materialize-modals',
   version: '0.1.0',
-  summary: 'Account modals that take the place of those provided by ' + 
-           'accounts-ui. Uses materialize.css classes.'
+  summary: 'Drop-in replacement for accounts-ui modals that use ' + 
+           'materialize.css classes.',
+  git: 'https://github.com/fongandrew/meteor-materialize-modals.git'
 });
 
 Package.onUse(function(api) {
